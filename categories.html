@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browse Categories - Antique Household Products</title>
+    <link rel="stylesheet" href="styllles.css">
+    <script>
+        function saveCategories() {
+            const selectedCategories = [];
+            const checkboxes = document.querySelectorAll('input[name="category"]:checked');
+            checkboxes.forEach((checkbox) => {
+                selectedCategories.push(checkbox.value);
+            });
+            localStorage.setItem('selectedCategories', JSON.stringify(selectedCategories));
+            window.location.href = 'orders.html'; // Redirect to orders page after saving
+            return false; // Prevent form submission
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="logout.html">Logout</a>
+    </div>
+    <div class="main-content">
+        <h2>Browse Categories</h2>
+        <form id="category-form" onsubmit="return saveCategories();">
+            <div class="categories-section">
+                <div>
+                    <input type="checkbox" id="portraits" name="category" value="portraits">
+                    <label for="portraits">Portraits</label>
+                    <a href="portraits.html">Explore</a>
+                </div>
+                <div>
+                    <input type="checkbox" id="vases" name="category" value="vases">
+                    <label for="vases">Vases</label>
+                    <a href="vases.html">Explore</a>
+                </div>
+                <div>
+                    <input type="checkbox" id="clocks" name="category" value="clocks">
+                    <label for="clocks">Clocks</label>
+                    <a href="clocks.html">Explore</a>
+                </div>
+                <div>
+                    <input type="checkbox" id="antique-furniture" name="category" value="antique_furniture">
+                    <label for="antique-furniture">Antique Furniture</label>
+                    <a href="antique_furniture.html">Explore</a>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

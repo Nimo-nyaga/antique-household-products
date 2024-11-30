@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - Antique Household Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://images.pexels.com/photos/2332913/pexels-photo-2332913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        /* Header */
+        .header {
+            padding: 20px;
+            background-color: plum;
+            border-bottom: 1px solid plum;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        /* Navbar */
+        .nav {
+            background-color: plum;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid plum;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        /* Main Dashboard */
+        .dashboard {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .dashboard h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: plum;
+        }
+        .dashboard .section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .section div {
+            background-color: white;
+            border: 2px solid plum;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .section div h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: plum;
+        }
+        .section div a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <a href="admin_login.html">Logout</a>
+        </div>
+    </div>
+
+
+
+    <div class="dashboard">
+        <h2>Welcome to the Admin Dashboard!</h2>
+        <p>Manage products, orders and customers.</p>
+        
+        <div class="section">
+            <div>
+                <h3>Manage Products</h3>
+                <a href="manage products.html">View & Edit</a>
+            </div>
+            <div>
+                <h3>View Orders</h3>
+                <a href="orders.php">Track Orders</a>
+            </div>
+            <div>
+                <h3>Customer Management</h3>
+                <a href="customers.php">View Customers</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

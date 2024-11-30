@@ -1,0 +1,44 @@
+body { 
+  font-family: Arial, sans-serif; 
+  background-image: url(https://static.prinseps.com/media/uploads/photos_2020/antiques_provenance.jpg); 
+  margin: 0; 
+  padding: 0; 
+}
+.container { 
+  width: 300px; 
+  margin: 50px auto; 
+  background-color: burlywood; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px; 
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="customer ID"]{ 
+  width: 95%; 
+  padding: 10px; 
+  margin: 10px 0; 
+  border: 1px solid grey; 
+  border-radius: 5px; 
+}
+button { 
+  width: 95%; 
+  padding: 10px; 
+  background-color: beige; 
+  color: goldenrod; 
+  border: none; 
+  border-radius: 3px; 
+  cursor: pointer; 
+}
+button:hover { 
+  background-color: brown; 
+}
+.link { 
+  text-align: center; 
+  margin-top: 10px; 
+}
+.link a { 
+  color: blanchedalmond; 
+  text-decoration: none; 
+}
+.link a:hover { 
+  text-decoration: underline; 
+}

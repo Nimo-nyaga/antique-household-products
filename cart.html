@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h2, h3 {
+            color: #4b0082;
+        }
+        a {
+            color: #4b0082;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Container Styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h2 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid plum;
+        }
+        /* Cart Items */
+        .cart-items {
+            margin: 20px 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        /* Cart Buttons */
+        .cart-buttons {
+            text-align: right;
+        }
+        .cart-buttons button {
+            padding: 10px 15px;
+            background-color: plum;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-buttons button:hover {
+            background-color: darkviolet;
+        }
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: plum;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: darkviolet;
+        }
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Your Cart</h2>
+        </header>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <div class="cart-buttons">
+            <button onclick="clearCart()">Clear Cart</button>
+        </div>
+
+        <form id="orderForm" action="submit_order.php" method="POST">
+            <h3>Delivery Information</h3>
+            <label for="deliveryAddress">Delivery Address:</label>
+            <textarea id="deliveryAddress" name="deliveryAddress" placeholder="Enter your delivery address" required></textarea>
+
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="">Select Payment Method</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="mobileMoney">Mobile Money</option>
+                <option value="cashOnDelivery">Cash on Delivery</option>
+            </select>
+
+            <input type="hidden" id="cartData" name="cartData"> <!-- Hidden field for cart data -->
+
+            <button type="button" onclick="submitOrder()">Submit Order</button>
+        </form>
+    </div>
+
+    <footer>
+       
+    </footer>
+
+    <script>
+        // Retrieve cart items from local storage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Select the cart container
+        const cartItemsContainer = document.getElementById('cartItems');
+
+        if (cart.length > 0) {
+            // Loop through the cart items and display them
+            cart.forEach((item, index) => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerText = `${index + 1}. ${item}`;
+                cartItemsContainer.appendChild(cartItemDiv);
+            });
+        } else {
+            cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        }
+
+        // Clear cart function
+        function clearCart() {
+            localStorage.removeItem('cart'); // Clear cart from local storage
+            alert("Your cart has been cleared.");
+            window.location.reload(); // Reload the page to update the view
+        }
+
+        // Submit order function
+        function submitOrder() {
+            const address = document.getElementById('deliveryAddress').value.trim();
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            if (!address || !paymentMethod) {
+                alert("Please fill in all fields before submitting your order.");
+                return;
+            }
+
+            // Serialize the cart data into the hidden input
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cartData').value = JSON.stringify(cart);
+
+            // Submit the form
+            document.getElementById('orderForm').submit();
+        }
+    </script>
+</body>
+</html>

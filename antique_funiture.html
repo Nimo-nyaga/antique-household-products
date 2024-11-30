@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Antique Furniture - Antique Household Products</title>
+    <style>
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .header, .nav {
+            background-color: plum;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product-item {
+            background-color: white;
+            border: 2px solid plum;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-item h3 {
+            color: plum;
+            font-size: 18px;
+        }
+        .product-item p {
+            font-size: 14px;
+            color: #666;
+        }
+        .product-item button {
+            background-color: plum;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+    </style>
+</head>
+<body>
+<h1>ANTIQUE FURNITURE</h1>
+    <div class="products">
+        <div class="product-item">
+            <img src="https://images.stockcake.com/public/c/4/2/c42968c1-3890-49ec-a3be-7d621798d83d_large/elegant-victorian-interior-stockcake.jpg" alt="Furniture 1">
+            <h3>Furniture 1</h3>
+            <p>Elegant Victorian chair</p>
+            <button onclick="addToCart('Furniture 1-Elegant Victorian chair')">Add to Cart</button>
+            <button onclick="goToCheckout()">Go to Cart</button>
+        </div>
+        <div class="product-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3bD9VHSD1Gv_7aXupBI_DDkZIqSDLrbdpnA&s" alt="Furniture 2">
+            <h3>Furniture 2</h3>
+            <p>19th-century antique table</p>
+            <button onclick="addToCart('Furniture 2-19th-century antique table')">Add to Cart</button>
+            <button onclick="goToCheckout()">Go to Cart</button>
+        </div>
+    </div>
+    <script>
+    function addToCart(item) {
+        // Retrieve existing cart items from local storage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Add the new item to the cart
+        cart.push(item);
+
+        // Save the updated cart back to local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Confirm to the user
+        alert(item + " has been added to your cart!");
+    }
+    // Function to go to the cart page
+        function goToCheckout() {
+            window.location.href = 'cart.html'; // Redirects to the cart page
+        }
+</script>
+
+</body>
+</html>

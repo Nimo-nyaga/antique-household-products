@@ -1,0 +1,135 @@
+/* Main body and background styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(https://images.pexels.com/photos/2332913/pexels-photo-2332913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+.header {
+    background-color: plum;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+/* Main content container */
+.main-content {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section headings */
+h2 {
+    color: plum;
+    text-align: center;
+}
+
+.order-summary, .delivery-info {
+    margin-bottom: 20px;
+}
+
+.order-summary h3, .delivery-info h3 {
+    color: #444;
+}
+
+/* Order summary styling */
+.order-summary {
+    background-color: #f9f1f9;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.order-summary p {
+    margin: 8px 0;
+}
+
+.order-summary strong {
+    color: #b56576;
+    font-size: 1.1em;
+}
+
+/* Delivery info and form styling */
+.delivery-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-info label {
+    margin-top: 10px;
+    color: #444;
+    font-weight: bold;
+}
+
+.delivery-info input[type="text"],
+.delivery-info textarea,
+.delivery-info select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.delivery-info textarea {
+    resize: vertical;
+}
+
+/* Button styling */
+button {
+    background-color: plum;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b56576;
+}
+
+/* Apply styles to sections in other parts of the page */
+.categories-section, .orders-section, .cart-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.categories-section div, .orders-section div, .cart-section div {
+    background-color: plum;
+    padding: 15px;
+    border: 2px solid plum;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.categories-section div a, .orders-section div button, .cart-section div button {
+    color: plum;
+    text-decoration: none;
+    font-weight: bold;
+}
